@@ -10,7 +10,7 @@ function calculaNivel(vitoria, derrota) {
         nivel = "Prata"
     } else if (vitoria <= 80) {
         nivel = "Ouro"
-    } else if (vitoria < 90) {
+    } else if (vitoria <= 90) {
         nivel = "Diamante"
     } else if (vitoria <= 100) {
         nivel = "Lendário"
@@ -21,6 +21,15 @@ function calculaNivel(vitoria, derrota) {
     return `O Héroi tem o saldo de ${saldoVitoria} está no nível de ${nivel}`;
 }
 
-let resultado = calculaNivel(88, 1);
+let jogadores = [
+    { vitoria: 5, derrota: 2 },
+    { vitoria: 15, derrota: 5 },
+    { vitoria: 45, derrota: 10 },
+    { vitoria: 85, derrota: 20 },
+    { vitoria: 110, derrota: 30 }
+];
 
-console.log(resultado);
+for (let i = 0; i < jogadores.length; i++) {
+    let resultado = calculaNivel(jogadores[i].vitoria, jogadores[i].derrota);
+    console.log(`Jogador ${i + 1}: ${resultado}`);
+}
